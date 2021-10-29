@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { auth } from "./firebase";
+import Tasks from "./components/Tasks";
+import AddTask from "./components/AddTask";
+import "./App.css";
+import Login from "./components/Login";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [user, setUser] = useState(null);
+
+    useEffect(() => {
+        let mounted = true;
+        auth.onAuthStateChanged((userObject) => {
+            if (mounted) {
+                setUser(userObject);
+            }
+        });
+
+        return () => {
+            mounted = false;
+        };
+    }, []);
+
+    return (
+        <Router>
+            <Switch>
+                <Route path="/" exact>
+                    {user === null ? <Login /> : <Tasks />}
+                </Route>
+                <Route path="/add">
+                    <AddTask />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
 
 export default App;
