@@ -24,6 +24,7 @@ function App() {
     };
   }, []);
 
+  // return a loading spinner if authentication state is not yet determined
   if (!loaded)
     return (
       <div className="spinner-container">
@@ -31,8 +32,10 @@ function App() {
       </div>
     );
 
+  // return the login page if user is not authenticated
   if (loaded && !user) return <Login />;
 
+  // return the normal ui when user is authenticated
   return (
     <Router>
       <Switch>
