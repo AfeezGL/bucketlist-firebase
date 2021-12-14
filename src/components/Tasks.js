@@ -60,6 +60,7 @@ const Tasks = () => {
       </header>
       <main>
         <section className="tasks">
+          {/* uncompleted tasks */}
           {allTasks.map(
             (task) =>
               !task.data.completed && (
@@ -68,6 +69,7 @@ const Tasks = () => {
           )}
         </section>
         <section className="completed">
+          {/* completed tasks */}
           {allTasks.map(
             (task) =>
               task.data.completed && <p key={task.id}>{task.data.task}</p>
