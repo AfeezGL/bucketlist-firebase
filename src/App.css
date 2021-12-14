@@ -1,134 +1,163 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    font-family: "Montserrat", sans-serif;
-    line-height: 1.5rem;
-    margin: 0 auto;
-    padding: 1rem;
-    background-color: #e3e9f0;
-    width: 100%;
-    height: 100vh;
-    max-width: 350px;
-    position: relative;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5rem;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: #e3e9f0;
+  width: 100%;
+  height: 100vh;
+  max-width: 350px;
+  position: relative;
 }
 header {
-    display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 header a {
-    color: black;
+  color: black;
+}
+
+/* ------ LOADING SPINNER--------------- */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border-bottom: #9ba4be 5px solid;
+  border-left: #7a85a5 5px solid;
+  border-top: #465274 5px solid;
+  border-right: #273049 5px solid;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* -------------LOGIN SCREEN------------ */
 
 .login {
-    display: flex;
-    width: 100%;
-    height: 80vh;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
 }
 .login button {
-    background-color: #273049;
-    padding: 0.5rem;
-    color: white;
-    border: #273049 1px;
-    border-radius: 0.2rem;
-    cursor: pointer;
-    transition: ease-out 0.2s;
+  background-color: #273049;
+  padding: 0.5rem;
+  color: white;
+  border: #273049 1px;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: ease-out 0.2s;
 }
 .login button:active {
-    background-color: black;
+  background-color: black;
 }
 
 /*-----------TASK PAGE-----------*/
 
 .main-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
 }
 .main-header button {
-    padding: 0.2rem;
-    color: black;
-    background-color: #e3e9f0;
-    border: #273049 1px solid;
-    border-radius: 0.2rem;
-    transition: ease-out 0.2s;
-    cursor: pointer;
+  padding: 0.2rem;
+  color: black;
+  background-color: #e3e9f0;
+  border: #273049 1px solid;
+  border-radius: 0.2rem;
+  transition: ease-out 0.2s;
+  cursor: pointer;
 }
 .main-header button:active {
-    background-color: #273049;
+  background-color: #273049;
 }
 .task {
-    display: flex;
-    justify-content: space-between;
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.3rem;
-    margin-bottom: 1rem;
-    width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 .task p {
-    font-size: 1.2rem;
-    font-weight: 500;
-    width: 95%;
+  font-size: 1.2rem;
+  font-weight: 500;
+  width: 95%;
 }
 .task button {
-    width: 1.2rem;
-    height: 1.2rem;
-    background-color: white;
-    border: 1px solid #273049;
-    border-radius: 50%;
-    transition: ease-out 0.2s;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: white;
+  border: 1px solid #273049;
+  border-radius: 50%;
+  transition: ease-out 0.2s;
 }
 .task button:active {
-    background-color: #273049;
+  background-color: #273049;
 }
 .completed {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 .completed p {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
 footer {
-    background-color: #273049;
-    text-align: center;
-    width: 100%;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    left: 0;
+  background-color: #273049;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+footer div {
+  padding: 1rem;
 }
 footer a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
 
 /* -------- Add Task Component -------- */
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 80vh;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+  gap: 1rem;
 }
 form input {
-    padding: 0.5rem 1rem;
-    border: 1px solid;
-    border-radius: 0.3rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid;
+  border-radius: 0.3rem;
 }
 .btn-submit {
-    background-color: #273049;
-    color: white;
-    text-transform: uppercase;
-    border: 1px;
-    width: 6rem;
-    align-self: flex-end;
-    font-weight: 500;
+  background-color: #273049;
+  color: white;
+  text-transform: uppercase;
+  border: 1px;
+  width: 6rem;
+  align-self: flex-end;
+  font-weight: 500;
 }

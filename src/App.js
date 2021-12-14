@@ -7,33 +7,44 @@ import "./App.css";
 import Login from "./components/Login";
 
 function App() {
-    const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
-    useEffect(() => {
-        let mounted = true;
-        auth.onAuthStateChanged((userObject) => {
-            if (mounted) {
-                setUser(userObject);
-            }
-        });
+  useEffect(() => {
+    let mounted = true;
+    auth.onAuthStateChanged((userObject) => {
+      if (mounted) {
+        setUser(userObject);
+        setLoaded(true);
+      }
+    });
 
-        return () => {
-            mounted = false;
-        };
-    }, []);
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
+  if (!loaded)
     return (
-        <Router>
-            <Switch>
-                <Route path="/" exact>
-                    {user === null ? <Login /> : <Tasks />}
-                </Route>
-                <Route path="/add">
-                    <AddTask />
-                </Route>
-            </Switch>
-        </Router>
+      <div className="spinner-container">
+        <div className="spinner"></div>
+      </div>
     );
+
+  if (loaded && !user) return <Login />;
+
+  return (
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Tasks />
+        </Route>
+        <Route path="/add">
+          <AddTask />
+        </Route>
+      </Switch>
+    </Router>
+  );
 }
 
 export default App;
