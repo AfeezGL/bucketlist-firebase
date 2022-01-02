@@ -81,7 +81,7 @@ const Tasks = () => {
         <Link to="/add">
           <div>
             <h4>
-              <i class="fas fa-plus"></i> Add new
+              <i className="fas fa-plus"></i> Add new
             </h4>
           </div>
         </Link>

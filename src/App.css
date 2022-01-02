@@ -7,11 +7,11 @@ body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.5rem;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1rem 0.5rem;
   background-color: #e3e9f0;
   width: 100%;
   height: 100vh;
-  max-width: 350px;
+  max-width: 380px;
   position: relative;
 }
 header {
